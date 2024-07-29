@@ -17,13 +17,14 @@ class TransactionService {
         label,
         userId,
         vendorId,
-      } = req.query;
+        state,
+      } = req.body;
 
       if(!date) return { status: false, code: 428, message: "DATE_IS_REQUIRED" }
       
       // accountId
       if(!accountId) return { status: false, code: 428, message: "ACCOUNT_IS_REQUIRED" }
-      let checkAccountObjId = await checkValidationObjectId(accountId, Account, "ACCOUNT");
+      let checkAccountObjId = await checkValidationObjectId(accountId, Account, "ACCOUNT", true);
       if(!checkAccountObjId.status) return checkAccountObjId;
 
       // userId
@@ -35,6 +36,7 @@ class TransactionService {
         accountId,
         date,
         userId,
+        state,
       };
       
       // vendorId
@@ -45,8 +47,8 @@ class TransactionService {
         data['vendorId'] = vendorId;
       }
 
-      if(credit) data['credit'] = credit;
-      if(debit) data['debit'] = debit;
+      data['credit'] = checkAccountObjId.data._doc.account_type == 'expense' ? parseFloat(credit) : 0;
+      data['debit'] = checkAccountObjId.data._doc.account_type == 'income' ? parseFloat(debit) : 0;
       if(label) data['label'] = label;
 
       return { status: true, data };
@@ -84,8 +86,8 @@ class TransactionService {
 
       if(startDate || endDate) {
         query['date'] = {}
-        if(startDate != 0) { Object.assign(query['date'], { $gte: startDate }) };
-        if(endDate != 0) { Object.assign(query['date'], { $lte: endDate }) };
+        if(startDate != 0) { Object.assign(query['date'], { $gte: new Date(startDate*1) }) };
+        if(endDate != 0) { Object.assign(query['date'], { $lte: new Date(endDate*1) }) };
       }
 
       if(debit > 0) query['debit'] = { $gte: parseFloat(debit) };

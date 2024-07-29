@@ -1,5 +1,6 @@
 import checkValidationObjectId from '../libraries/checkValidationObjectId.js';
 
+import Account from "../models/Account.js";
 import Transaction from "../models/Transaction.js";
 
 import TransactionService from '../services/TransactionService.js';
@@ -8,12 +9,11 @@ class TransactionController {
   async index(req, res) {
     try {
       const query = await TransactionService.generateQuerySearch(req);
-      if(!query.status) throw { code: data.code, message: "ERROR_QUERY_SEARCH", data: null, status: false }
-      
+      if(!query.status) throw { code: query.code, message: "ERROR_QUERY_SEARCH", data: null, status: false }
       let result = Transaction.aggregate(query.aggregate);
 
       const transactions = await result;
-      const total = await Transaction.count(query.aggregate[0]['$match']);
+      const total = await Transaction.countDocuments(query.aggregate[0]['$match']);
 
       if(!transactions) { throw { code: 404, message: "TRANSACTION_DATA_NOT_FOUND", data: null, status: false } }
 
@@ -119,14 +119,40 @@ class TransactionController {
       const {id} = req.params
       if(!id) { throw { code: 420, message: "ID_REQUIRED", data: null, status: false } }
       
-      const checkObjId = await checkValidationObjectId(id, Transaction, "TRANSACTION")
+      const checkObjId = await checkValidationObjectId(id, Transaction, "TRANSACTION", true)
       if(!checkObjId.status) return res.status(checkObjId.code).json({
         status: false,
         message: checkObjId.message,
         data: null
       });
 
-      const transaction = await Transaction.findByIdAndUpdate( { _id: id }, req.body, { new: true } )
+      
+      const { 
+        accountId,
+        credit,
+        date,
+        debit,
+        label,
+        userId,
+        vendorId,
+        state,
+      } = req.body;
+      
+      const checkAccountObjId = await checkValidationObjectId(accountId, Account, "ACCOUNT", true);
+      if(!checkAccountObjId.status) return checkAccountObjId;
+
+      const data = {
+        accountId,
+        credit: checkAccountObjId.data.account_type === 'expense' ? parseFloat(credit) : 0,
+        date,
+        debit: checkAccountObjId.data.account_type === 'income' ? parseFloat(debit) : 0,
+        label,
+        userId,
+        vendorId: vendorId !== "" ? vendorId : null,
+        state,
+      }
+
+      const transaction = await Transaction.findByIdAndUpdate( { _id: id }, data, { new: true } )
       if(!transaction) { throw { code: 500, message: "TRANSACTION_UPDATE_FAILED", data: null, status: false } }
 
       return res.status(200).json({

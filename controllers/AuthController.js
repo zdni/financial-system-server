@@ -35,6 +35,8 @@ class AuthController {
       const isMatch = bcrypt.compareSync(password, user.password)
       if(!isMatch) { throw { code: 403, message: "WRONG_PASSWORD", data: null, status: false } }
 
+      if(user.status === 'inactive') { throw { code: 403, message: "INACTIVE_USER", data: null, status: false } }
+
       const payload = { id: user.id, role: user.role }
       const accessToken = await generateAccessToken(payload)
       const refreshToken = await generateRefreshToken(payload)
