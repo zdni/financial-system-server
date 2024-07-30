@@ -5,6 +5,7 @@ import AccountController from '../controllers/AccountController.js';
 import AuthController from '../controllers/AuthController.js';
 import PDFController from '../controllers/PDFController.js';
 import TransactionController from '../controllers/TransactionController.js';
+import TransactionLineController from '../controllers/TransactionLineController.js';
 import UserController from '../controllers/UserController.js';
 import VendorController from '../controllers/VendorController.js';
 import XlsxController from '../controllers/XlsxController.js';
@@ -29,7 +30,13 @@ router.get('/transactions', auth(), TransactionController.index);
 router.post('/transactions', auth(), TransactionController.store);
 router.get('/transactions/:id', auth(), TransactionController.show);
 router.put('/transactions/:id', auth(), TransactionController.update);
-router.delete('/transactions/:id', auth(), TransactionController.destroy);
+// router.delete('/transactions/:id', auth(), TransactionController.destroy);
+// transaction lines
+router.get('/transaction/lines', auth(), TransactionLineController.index);
+router.post('/transaction/lines', auth(), TransactionLineController.store);
+router.get('/transaction/lines/:id', auth(), TransactionLineController.show);
+router.put('/transaction/lines/:id', auth(), TransactionLineController.update);
+router.delete('/transaction/lines/:id', auth(), TransactionLineController.destroy);
 // users
 router.get('/user', auth(), UserController.userFromToken);
 router.get('/users', auth(), UserController.index);

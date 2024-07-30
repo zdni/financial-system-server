@@ -1,6 +1,5 @@
 import checkValidationObjectId from '../libraries/checkValidationObjectId.js';
 
-import Account from "../models/Account.js";
 import Transaction from "../models/Transaction.js";
 
 import TransactionService from '../services/TransactionService.js';
@@ -40,10 +39,10 @@ class TransactionController {
       const document = new Transaction(data.data);
       const transaction = await document.save();
       
-      if(!transaction) { throw { code: 500, message: "FAILED_CREATE_TRANSACTION", data: null, status: false } }
+      if(!transaction) { throw { code: 500, message: "Gagal menambahkan data Transaksi!", data: null, status: false } }
       return res.status(200).json({
         status: true,
-        message: "SUCCESS_CREATE_TRANSACTION",
+        message: "Berhasil menambahkan data Transaksi!",
         data: transaction,
       })
     } catch (error) {
@@ -69,24 +68,6 @@ class TransactionController {
 
       const transaction = await Transaction.aggregate([
         { $match: { _id: new mongoose.Types.ObjectId(id) } },
-        {
-          $lookup: {
-            from: "accounts",
-            localField: "accountId",
-            foreignField: "_id",
-            as: "accountId"
-          }
-        },
-        { $unwind: {"path": '$accountId', "preserveNullAndEmptyArrays": true} },
-        {
-          $lookup: {
-            from: "vendors",
-            localField: "vendorId",
-            foreignField: "_id",
-            as: "vendorId"
-          }
-        },
-        { $unwind: {"path": '$vendorId', "preserveNullAndEmptyArrays": true} },
         {
           $lookup: {
             from: "users",
@@ -126,38 +107,12 @@ class TransactionController {
         data: null
       });
 
-      
-      const { 
-        accountId,
-        credit,
-        date,
-        debit,
-        label,
-        userId,
-        vendorId,
-        state,
-      } = req.body;
-      
-      const checkAccountObjId = await checkValidationObjectId(accountId, Account, "ACCOUNT", true);
-      if(!checkAccountObjId.status) return checkAccountObjId;
-
-      const data = {
-        accountId,
-        credit: checkAccountObjId.data.account_type === 'expense' ? parseFloat(credit) : 0,
-        date,
-        debit: checkAccountObjId.data.account_type === 'income' ? parseFloat(debit) : 0,
-        label,
-        userId,
-        vendorId: vendorId !== "" ? vendorId : null,
-        state,
-      }
-
-      const transaction = await Transaction.findByIdAndUpdate( { _id: id }, data, { new: true } )
-      if(!transaction) { throw { code: 500, message: "TRANSACTION_UPDATE_FAILED", data: null, status: false } }
+      const transaction = await Transaction.findByIdAndUpdate( { _id: id }, req.body, { new: true } )
+      if(!transaction) { throw { code: 500, message: "Gagal mengubah data Transaksi!", data: null, status: false } }
 
       return res.status(200).json({
         status: true,
-        message: "TRANSACTION_UPDATE_SUCCESS",
+        message: "Berhasil mengubah data Transaksi!",
         data: transaction,
       })
     } catch (error) {
@@ -182,34 +137,13 @@ class TransactionController {
       });
 
       const transaction = await Transaction.findOneAndDelete({ _id: id })
-      if(!transaction) { throw { code: 500, message: "TRANSACTION_DELETE_FAILED", data: null, status: false } }
+      if(!transaction) { throw { code: 500, message: "Gagal menghapus data Transaksi!", data: null, status: false } }
 
       return res.status(200).json({
         status: true,
-        message: "TRANSACTION_DELETE_SUCCESS",
+        message: "Berhasil menghapus data Transaksi!",
         data: transaction,
       })
-    } catch (error) {
-      return res.status(error.code || 500).json({
-        status: false,
-        message: error.message,
-        data: null
-      });
-    }
-  }
-
-  async group(req, res) {
-    try {
-      const query = await TransactionService.generateQueryGroup(req);
-      if(!query.status) throw { code: query.code, message: "ERROR_QUERY_GROUP", data: null, status: false }
-
-      const transactions = await Transaction.aggregate(query.query);
-
-      return res.status(200).json({
-        status: true,
-        message: "TRANSACTION_GROUP_SUCCESS",
-        data: transactions
-      });
     } catch (error) {
       return res.status(error.code || 500).json({
         status: false,
