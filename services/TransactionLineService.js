@@ -117,6 +117,15 @@ class TransactionLineService {
 
       aggregate.push({
         $lookup: {
+          from: "transactions",
+          localField: "transactionId",
+          foreignField: "_id",
+          as: "transactionId"
+        }
+      })
+      aggregate.push({ $unwind: {"path": '$transactionId', "preserveNullAndEmptyArrays": true} })
+      aggregate.push({
+        $lookup: {
           from: "accounts",
           localField: "accountId",
           foreignField: "_id",

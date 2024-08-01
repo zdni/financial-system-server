@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import checkValidationObjectId from '../libraries/checkValidationObjectId.js';
 
 import Account from "../models/Account.js";
@@ -112,7 +113,7 @@ class TransactionController {
       return res.status(200).json({
         status: true,
         message: "TRANSACTION_FOUND",
-        data: transaction[0]
+        data: line
       });
     } catch (error) {
       return res.status(error.code || 500).json({

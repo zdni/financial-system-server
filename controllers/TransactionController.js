@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import checkValidationObjectId from '../libraries/checkValidationObjectId.js';
 
 import Transaction from "../models/Transaction.js";

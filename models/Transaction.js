@@ -28,7 +28,6 @@ const TransactionSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
-  seq: { type: Number, default: 0 },
   state: {
     type: String,
     enum: [
@@ -46,7 +45,6 @@ const TransactionSchema = new mongoose.Schema({
 TransactionSchema.pre('save', function(next) {
   const doc = this;
   counter.findByIdAndUpdate({ _id: 'transactionSeq' }, { $inc: { seq: 1 } }).then((counter) => {
-    doc.seq = suffixSeq(prefixSeq(counter.seq));
     doc.name = `TRANS/${suffixSeq(prefixSeq(counter.seq, counter.prefix), counter.suffix)}`;
     next();
   }).catch((error) => {
