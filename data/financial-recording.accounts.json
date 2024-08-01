@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "66a02eb520845536f648b8ee"
+  },
+  "name": "Hutang Usaha",
+  "account_type": "expense",
+  "createdAt": {
+    "$date": "1970-01-20T22:16:13.749Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:16:13.749Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "name": "Pendapatan",
+  "account_type": "income",
+  "createdAt": {
+    "$date": "1970-01-20T22:28:44.460Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:28:44.460Z"
+  },
+  "__v": 0
+}]
