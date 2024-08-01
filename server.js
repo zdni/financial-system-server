@@ -10,6 +10,7 @@ const env = dotenv.config().parsed
 const app = express()
 app.use( express.json() )
 app.use( express.urlencoded({ extended: true }) )
+app.use( '/exports', express.static('exports') )
 app.use( cors({ origin: env.CORS_URL }) )
 
 // routes
