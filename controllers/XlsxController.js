@@ -1,9 +1,9 @@
 import { writeFileSync } from "node:fs";
 import { Workbook } from "xlsx-kaku";
 
-import Transaction from "../models/Transaction.js";
+import TransactionLine from "../models/TransactionLine.js";
 
-import TransactionService from '../services/TransactionService.js';
+import TransactionLineService from '../services/TransactionLineService.js';
 
 import { fDate } from '../libraries/formatTime.js';
 
@@ -11,11 +11,11 @@ class XlsxController {
   async export(req, res) {
     try {
       console.log(req.query)
-      const query = await TransactionService.generateQuerySearch(req);
+      const query = await TransactionLineService.generateQuerySearch(req);
       if(!query.status) throw { code: query.code, message: "ERROR_QUERY_SEARCH", data: null, status: false }
-      let result = Transaction.aggregate(query.aggregate);
+      let result = TransactionLine.aggregate(query.aggregate);
 
-      const transactions = await result;
+      const lines = await result;
       const wb = new Workbook();
       const ws = wb.addWorksheet("TRANSAKSI");
       
@@ -30,8 +30,8 @@ class XlsxController {
       let number = 0;
       let income = 0;
       let expense = 0;
-      transactions.map((transaction) => {
-        if(currentDate !== fDate(transaction.date)) {
+      lines.map((line) => {
+        if(currentDate !== fDate(line.date)) {
           if(row !== 3) {
             row += 1;
             ws.setCell(row, 0, { type: "string", value: "Total" });
@@ -43,9 +43,9 @@ class XlsxController {
           income = 0;
           expense = 0;
           row += 3;
-          currentDate = fDate(transaction.date);
+          currentDate = fDate(line.date);
 
-          ws.setCell(row, 0, { type: "string", value: `${fDate(transaction.date*1)}`, style: { alignment: {horizontal: "center", vertical: "center"} } });
+          ws.setCell(row, 0, { type: "string", value: `${fDate(line.date*1)}`, style: { alignment: {horizontal: "center", vertical: "center"} } });
           ws.setMergeCell({ ref: `A${row+1}:F${row+1}` })
           
           row += 1
@@ -59,15 +59,15 @@ class XlsxController {
         number += 1;
         row += 1;
 
-        income += transaction.debit;
-        expense += transaction.credit;
+        income += line.debit;
+        expense += line.credit;
         
         ws.setCell(row, 0, { type: "number", value: number });
-        ws.setCell(row, 1, { type: "string", value: transaction.label });
-        ws.setCell(row, 2, { type: "string", value: transaction.accountId?.name || '' });
-        ws.setCell(row, 3, { type: "string", value: transaction.vendorId?.name || '' });
-        ws.setCell(row, 4, { type: "number", value: transaction.debit, style: { alignment: {horizontal: "right", vertical: "center"} } });
-        ws.setCell(row, 5, { type: "number", value: transaction.credit, style: { alignment: {horizontal: "right", vertical: "center"} } });
+        ws.setCell(row, 1, { type: "string", value: line.label });
+        ws.setCell(row, 2, { type: "string", value: line.accountId?.name || '' });
+        ws.setCell(row, 3, { type: "string", value: line.vendorId?.name || '' });
+        ws.setCell(row, 4, { type: "number", value: line.debit, style: { alignment: {horizontal: "right", vertical: "center"} } });
+        ws.setCell(row, 5, { type: "number", value: line.credit, style: { alignment: {horizontal: "right", vertical: "center"} } });
       })
 
       row += 1;

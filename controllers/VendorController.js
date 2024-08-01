@@ -112,6 +112,16 @@ class VendorController {
         data: null
       });
 
+      // check if account has transaction
+      const vendors = await Vendor.findById(id);
+      if(vendors.length > 0) {
+        return res.status(500).json({
+          status: false,
+          message: "Gagal menghapus Vendor karena telah memiliki riwayat transaksi!",
+          data: null,
+        });
+      }
+
       const vendor = await Vendor.findOneAndDelete({ _id: id })
       if(!vendor) { throw { code: 500, message: "VENDOR_DELETE_FAILED", data: null, status: false } }
 

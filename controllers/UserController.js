@@ -11,7 +11,7 @@ class UserController {
   async index(req, res) {
     try {
       const query = await UserService.generateQuerySearch(req)
-      if(!query.status) throw { code: query.code, message: "ERROR_QUERY_SEARCH", data: null, status: false }
+      if(!query.status) throw { code: query.code, message: "Query Pencarian Eror!", data: null, status: false }
       
       const users = await User.aggregate([
         { $match: query.query },

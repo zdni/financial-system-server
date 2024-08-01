@@ -30,11 +30,11 @@ class AccountController {
 
       const document = new Account({ name: name, account_type: account_type });
       const account = await document.save();
-      if(!account) { throw { code: 500, message: "FAILED_CREATE_ACCOUNT", data: null, status: false } }
+      if(!account) { throw { code: 500, message: "Gagal Menambahkan data akun!", data: null, status: false } }
 
       return res.status(200).json({
         status: true,
-        message: "SUCCESS_CREATE_ACCOUNT",
+        message: "Berhasil menambahkan data akun!",
         data: account,
       })
     } catch (error) {
@@ -84,14 +84,12 @@ class AccountController {
         data: null
       });
 
-      // check if account has transaction
-
       const account = await Account.findByIdAndUpdate( { _id: id }, req.body, { new: true } )
-      if(!account) { throw { code: 500, message: "ACCOUNT_UPDATE_FAILED", data: null, status: false } }
+      if(!account) { throw { code: 500, message: "Gagal mengubah data akun!", data: null, status: false } }
 
       return res.status(200).json({
         status: true,
-        message: "ACCOUNT_UPDATE_SUCCESS",
+        message: "Berhasil mengubah data akun!",
         data: account,
       })
     } catch (error) {
@@ -116,14 +114,21 @@ class AccountController {
       });
 
       // check if account has transaction
-      
+      const accounts = await Account.findById(id);
+      if(accounts.length > 0) {
+        return res.status(500).json({
+          status: false,
+          message: "Gagal menghapus akun karena telah memiliki riwayat transaksi!",
+          data: null,
+        });
+      }
 
       const account = await Account.findOneAndDelete({ _id: id })
-      if(!account) { throw { code: 500, message: "ACCOUNT_DELETE_FAILED", data: null, status: false } }
+      if(!account) { throw { code: 500, message: "Gagal menghapus data akun!", data: null, status: false } }
 
       return res.status(200).json({
         status: true,
-        message: "ACCOUNT_DELETE_SUCCESS",
+        message: "Berhasil menghapus data akun!",
         data: account,
       })
     } catch (error) {

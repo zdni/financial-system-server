@@ -12,9 +12,9 @@ const auth = () => {
         jwt.verify(token, env.JWT_ACCESS_TOKEN_SECRET, (err, data) => {
           if ( err ) {
             if( err.name == 'TokenExpiredError' ) {
-              throw 'TOKEN_EXPIRED'
+              throw 'Token Kadaluarsa!'
             } else {
-              throw 'TOKEN_IS_NOT_VALID'
+              throw 'Token tidak Valid!'
             }
           } else {
             req.jwt = data
@@ -22,7 +22,7 @@ const auth = () => {
           }
         })
       } else {
-        throw 'TOKEN_REQUIRED'
+        throw 'Token dibutuhkan!'
       }
     } catch (error) {
       return res.status(401).json({

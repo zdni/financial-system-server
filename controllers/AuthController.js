@@ -26,16 +26,16 @@ class AuthController {
   async login(req, res) {
     try {
       const { email, password } = req.body
-      if(!email) { throw { code: 428, message: "EMAIL_IS_REQUIRED", data: null, status: false } }
-      if(!password) { throw { code: 428, message: "PASSWORD_IS_REQUIRED", data: null, status: false } }
+      if(!email) { throw { code: 428, message: "Email harap di isi!", data: null, status: false } }
+      if(!password) { throw { code: 428, message: "Password harap di isi!", data: null, status: false } }
 
       const user = await User.findOne({ email: email })
-      if(!user) { throw { code: 403, message: "USER_NOT_FOUND", data: null, status: false } }
+      if(!user) { throw { code: 403, message: "Pengguna tidak ditemukan", data: null, status: false } }
       
       const isMatch = bcrypt.compareSync(password, user.password)
-      if(!isMatch) { throw { code: 403, message: "WRONG_PASSWORD", data: null, status: false } }
+      if(!isMatch) { throw { code: 403, message: "Password yang anda masukkan salah!", data: null, status: false } }
 
-      if(user.status === 'inactive') { throw { code: 403, message: "INACTIVE_USER", data: null, status: false } }
+      if(user.status === 'inactive') { throw { code: 403, message: "Pengguna tidak aktif!", data: null, status: false } }
 
       const payload = { id: user.id, role: user.role }
       const accessToken = await generateAccessToken(payload)
@@ -46,7 +46,7 @@ class AuthController {
 
       return res.status(200).json({
         status: true,
-        message: "LOGIN_SUCCESS",
+        message: "Berhasil Login",
         data: {
           user: data,
           accessToken,
@@ -66,7 +66,7 @@ class AuthController {
   async refreshToken(req, res) {
     try {
       const { refreshToken } = req.body
-      if(!refreshToken) { throw { code: 428, message: "REFRESH_TOKEN_IS_REQUIRED", data: null, status: false } }
+      if(!refreshToken) { throw { code: 428, message: "Token diperlukan!", data: null, status: false } }
 
       const verify = jwt.verify(refreshToken, env.JWT_REFRESH_TOKEN_SECRET)
       const payload = { id: verify.id, role: verify.role }
@@ -75,14 +75,14 @@ class AuthController {
       const _refreshToken = await generateRefreshToken(payload)
       
       const user = await User.findOne({ _id: verify.id })
-      if(!user) { throw { code: 403, message: "USER_NOT_FOUND", data: null, status: false } }
+      if(!user) { throw { code: 403, message: "Pengguna tidak ditemukan", data: null, status: false } }
       
       let data = { ...user._doc }
       delete data.password
 
       return res.status(200).json({
         status: true,
-        message: "REFRESH_TOKEN_SUCCESS",
+        message: "Berhasil menyegarkan token",
         data: {
           user: data,
           accessToken,
@@ -93,9 +93,9 @@ class AuthController {
       if(!err.code) { err.code = 500 }
       
       if(err.message === "jwt expired") {
-        err.message = "REFRESH_TOKEN_EXPIRED"
+        err.message = "Token kadaluarsa"
       } else if(err.message === 'invalid signature' || err.message === 'invalid token') {
-        err.message = "REFRESH_TOKEN_INVALID"
+        err.message = "Token tidak valid"
       }
 
       return res.status(err.code).json({
