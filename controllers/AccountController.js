@@ -1,4 +1,5 @@
 import Account from "../models/Account.js";
+import TransactionLine from "../models/TransactionLine.js";
 
 import checkValidationObjectId from '../libraries/checkValidationObjectId.js';
 
@@ -114,7 +115,8 @@ class AccountController {
       });
 
       // check if account has transaction
-      const accounts = await Account.findById(id);
+      const accounts = await TransactionLine.find({ accountId: id });
+      console.log(accounts);
       if(accounts.length > 0) {
         return res.status(500).json({
           status: false,

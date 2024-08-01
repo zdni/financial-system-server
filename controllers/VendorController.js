@@ -1,4 +1,5 @@
 import Vendor from "../models/Vendor.js";
+import TransactionLine from "../models/TransactionLine.js";
 
 import checkValidationObjectId from '../libraries/checkValidationObjectId.js';
 
@@ -113,7 +114,7 @@ class VendorController {
       });
 
       // check if account has transaction
-      const vendors = await Vendor.findById(id);
+      const vendors = await TransactionLine.find({ accountId: id });
       if(vendors.length > 0) {
         return res.status(500).json({
           status: false,
