@@ -14,7 +14,7 @@ class TransactionController {
       let result = TransactionLine.aggregate(query.aggregate);
 
       const lines = await result;
-      const total = await TransactionLine.countDocuments(query.aggregate[0]['$match']);
+      const total = await TransactionLine.countDocuments(query.aggregate.at(-1)['$match']);
 
       if(!lines) { throw { code: 404, message: "TRANSACTION_LINE_DATA_NOT_FOUND", data: null, status: false } }
 

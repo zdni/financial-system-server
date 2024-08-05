@@ -3,7 +3,6 @@ import express from "express";
 // controllers
 import AccountController from '../controllers/AccountController.js';
 import AuthController from '../controllers/AuthController.js';
-import PDFController from '../controllers/PDFController.js';
 import TransactionController from '../controllers/TransactionController.js';
 import TransactionLineController from '../controllers/TransactionLineController.js';
 import UserController from '../controllers/UserController.js';
@@ -54,7 +53,6 @@ router.put('/vendors/:id', auth(), VendorController.update);
 router.delete('/vendors/:id', auth(), VendorController.destroy);
 // export
 router.get('/transactions/export/xlsx', auth(), XlsxController.export);
-router.get('/transactions/export/pdf', PDFController.export);
 
 // server
 router.get('/', function(req, res) {

@@ -76,6 +76,7 @@ class TransactionLineService {
         startDate,
         transactionId,
         vendorId,
+        state,
 
         sort,
         page,
@@ -97,15 +98,17 @@ class TransactionLineService {
       }
 
       if(startDate || endDate) {
-        query['date'] = {}
-        if(startDate != 0) { Object.assign(query['date'], { $gte: new Date(startDate*1) }) };
-        if(endDate != 0) { Object.assign(query['date'], { $lte: new Date(endDate*1) }) };
+        query['transactionId.date'] = {}
+        if(startDate != 0) { Object.assign(query['transactionId.date'], { $gte: new Date(startDate*1) }) };
+        if(endDate != 0) { Object.assign(query['transactionId.date'], { $lte: new Date(endDate*1) }) };
       }
 
       if(debit > 0) query['debit'] = { $gte: parseFloat(debit) };
       if(credit > 0) query['credit'] = { $gte: parseFloat(credit) };
 
-      const aggregate = [ { $match: query } ]
+      if(state) query['transactionId.state'] = { $eq: state };
+
+      const aggregate = []
 
       if(sort) {
         if(sort.includes('-')) {
@@ -151,6 +154,8 @@ class TransactionLineService {
         }
       })
       aggregate.push({ $unwind: {"path": '$userId', "preserveNullAndEmptyArrays": true} })
+
+      aggregate.push( { $match: query } )
 
       if(limit) {
         const skip = ((Number(page) !== 0 && !isNaN(Number(page))) && (Number(limit) !== 0 && !isNaN(Number(limit)))) ? (Number(page) - 1) * Number(limit) : 0

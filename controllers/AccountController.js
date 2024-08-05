@@ -116,7 +116,6 @@ class AccountController {
 
       // check if account has transaction
       const accounts = await TransactionLine.find({ accountId: id });
-      console.log(accounts);
       if(accounts.length > 0) {
         return res.status(500).json({
           status: false,

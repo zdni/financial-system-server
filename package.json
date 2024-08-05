@@ -21,7 +21,6 @@
     "mongoose": "^8.5.0",
     "nodemon": "^3.1.4",
     "numeral": "^2.0.6",
-    "wkhtmltopdf": "^0.4.0",
     "xlsx-kaku": "^0.17.1"
   }
 }
