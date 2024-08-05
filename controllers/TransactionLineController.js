@@ -13,6 +13,8 @@ class TransactionController {
       if(!query.status) throw { code: query.code, message: "Query Pencarian Eror!", data: null, status: false }
       let result = TransactionLine.aggregate(query.aggregate);
 
+      console.log(query.aggregate);
+
       const lines = await result;
       const total = await TransactionLine.countDocuments(query.aggregate.at(-1)['$match']);
 

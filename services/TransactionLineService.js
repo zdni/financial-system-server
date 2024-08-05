@@ -85,16 +85,16 @@ class TransactionLineService {
 
       if(accountId) {
         let checkObjId = await checkValidationObjectId(accountId, Account, "ACCOUNT");
-        if(checkObjId.status) query['accountId'] = new mongoose.Types.ObjectId(accountId);
+        if(checkObjId.status) query['accountId._id'] = new mongoose.Types.ObjectId(accountId);
       }
 
       if(transactionId) {
         let checkObjId = await checkValidationObjectId(transactionId, Transaction, "TRANSACTION");
-        if(checkObjId.status) query['transactionId'] = new mongoose.Types.ObjectId(transactionId);
+        if(checkObjId.status) query['transactionId._id'] = new mongoose.Types.ObjectId(transactionId);
       }
       if(vendorId) {
         let checkObjId = await checkValidationObjectId(vendorId, Vendor, "VENDOR");
-        if(checkObjId.status) query['vendorId'] = new mongoose.Types.ObjectId(vendorId);
+        if(checkObjId.status) query['vendorId._id'] = new mongoose.Types.ObjectId(vendorId);
       }
 
       if(startDate || endDate) {
