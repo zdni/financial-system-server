@@ -113,8 +113,8 @@ class VendorController {
         data: null
       });
 
-      // check if account has transaction
-      const vendors = await TransactionLine.find({ accountId: id });
+      // check if vendor has transaction
+      const vendors = await TransactionLine.find({ vendorId: id });
       if(vendors.length > 0) {
         return res.status(500).json({
           status: false,

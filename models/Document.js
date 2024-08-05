@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const DocumentSchema = new mongoose.Schema({
-  label: { type: String, required: true },
+  name: { type: String, required: true },
   document_type: {
     type: String,
     enum: [

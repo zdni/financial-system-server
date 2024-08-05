@@ -3,6 +3,8 @@ import express from "express";
 // controllers
 import AccountController from '../controllers/AccountController.js';
 import AuthController from '../controllers/AuthController.js';
+import DocumentController from '../controllers/DocumentController.js';
+import PDFController from '../controllers/PDFController.js';
 import TransactionController from '../controllers/TransactionController.js';
 import TransactionLineController from '../controllers/TransactionLineController.js';
 import UserController from '../controllers/UserController.js';
@@ -51,8 +53,13 @@ router.post('/vendors', auth(), VendorController.store);
 router.get('/vendors/:id', auth(), VendorController.show);
 router.put('/vendors/:id', auth(), VendorController.update);
 router.delete('/vendors/:id', auth(), VendorController.destroy);
+// file
+router.get('/documents', DocumentController.index);
+router.post('/documents', auth(), DocumentController.store);
+router.delete('/documents/:id', auth(), DocumentController.destroy);
 // export
 router.get('/transactions/export/xlsx', auth(), XlsxController.export);
+router.get('/transactions/export/pdf', auth(), PDFController.export);
 
 // server
 router.get('/', function(req, res) {
