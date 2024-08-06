@@ -6,8 +6,10 @@ export function fNumber(number) {
 
 export function fCurrency(number) {
   const format = numeral(number).format('$0,0.00')
+  let res = result(format, '.00')
+  res = res.replace('$', 'Rp');
 
-  return result(format, '.00')
+  return res
 }
 
 export function fPercent(number) {

@@ -59,7 +59,7 @@ router.post('/documents', auth(), DocumentController.store);
 router.delete('/documents/:id', auth(), DocumentController.destroy);
 // export
 router.get('/transactions/export/xlsx', auth(), XlsxController.export);
-router.get('/transactions/export/pdf', auth(), PDFController.export);
+router.get('/transactions/export/pdf', PDFController.export);
 
 // server
 router.get('/', function(req, res) {

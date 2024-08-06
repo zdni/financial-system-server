@@ -21,6 +21,8 @@
     "mongoose": "^8.5.0",
     "nodemon": "^3.1.4",
     "numeral": "^2.0.6",
+    "puppeteer": "^22.15.0",
+    "puppeteer-core": "^22.15.0",
     "xlsx-kaku": "^0.17.1"
   }
 }
