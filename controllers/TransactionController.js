@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import checkValidationObjectId from '../libraries/checkValidationObjectId.js';
 
 import Transaction from "../models/Transaction.js";
+import TransactionLine from "../models/TransactionLine.js";
 
 import TransactionService from '../services/TransactionService.js';
 
@@ -136,6 +137,9 @@ class TransactionController {
         message: checkObjId.message,
         data: null
       });
+
+      const lines = await TransactionLine.deleteMany({ transactionId: id })
+      if(!lines) { throw { code: 500, message: "Gagal menghapus data Transaksi!", data: null, status: false } }
 
       const transaction = await Transaction.findOneAndDelete({ _id: id })
       if(!transaction) { throw { code: 500, message: "Gagal menghapus data Transaksi!", data: null, status: false } }
