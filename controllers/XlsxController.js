@@ -33,6 +33,9 @@ class XlsxController {
       let income = 0;
       let expense = 0;
       let margin = 0;
+      let total_income = 0;
+      let total_expense = 0;
+      let total = 0;
       lines.map((line) => {
         if(currentDate !== fDate(line.date)) {
           if(row !== 3) {
@@ -73,6 +76,9 @@ class XlsxController {
         income += line.debit;
         expense += line.credit;
         
+        total_income += line.debit;
+        total_expense += line.credit;
+        
         ws.setCell(row, 0, { type: "number", value: number });
         ws.setCell(row, 1, { type: "string", value: line.label });
         ws.setCell(row, 2, { type: "string", value: line.accountId?.name || '' });
@@ -92,6 +98,26 @@ class XlsxController {
       ws.setCell(row, 0, { type: "string", value: "Margin" });
       ws.setMergeCell({ ref: `A${row+1}:D${row+1}` });
       ws.setCell(row, 4, { type: "number", value: margin, style: { alignment: {horizontal: "right", vertical: "center"} } });
+      ws.setMergeCell({ ref: `E${row+1}:F${row+1}` });
+
+      // recapitulation
+      row += 3
+      ws.setCell(row, 0, { type: "string", value: "Total Income" });
+      ws.setMergeCell({ ref: `A${row+1}:D${row+1}` })
+      ws.setCell(row, 4, { type: "number", value: total_income, style: { alignment: {horizontal: "right", vertical: "center"} } });
+      ws.setMergeCell({ ref: `E${row+1}:F${row+1}` });
+
+      row += 1
+      ws.setCell(row, 0, { type: "string", value: "Total Expense" });
+      ws.setMergeCell({ ref: `A${row+1}:D${row+1}` })
+      ws.setCell(row, 4, { type: "number", value: total_expense, style: { alignment: {horizontal: "right", vertical: "center"} } });
+      ws.setMergeCell({ ref: `E${row+1}:F${row+1}` });
+      
+      row += 1
+      total = total_income - total_expense
+      ws.setCell(row, 0, { type: "string", value: "Margin" });
+      ws.setMergeCell({ ref: `A${row+1}:D${row+1}` })
+      ws.setCell(row, 4, { type: "number", value: total, style: { alignment: {horizontal: "right", vertical: "center"} } });
       ws.setMergeCell({ ref: `E${row+1}:F${row+1}` });
 
       const xlsx = wb.generateXlsxSync();

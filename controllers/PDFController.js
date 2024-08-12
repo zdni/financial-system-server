@@ -42,6 +42,8 @@ class PDFController {
       let number = 0;
       let income = 0;
       let expense = 0;
+      let total_income = 0;
+      let total_expense = 0;
       let first = true;
       lines.map((line) => {
         if(currentDate !== fDate(line.date)) {
@@ -92,6 +94,9 @@ class PDFController {
         income += line.debit;
         expense += line.credit;
 
+        total_income += line.debit;
+        total_expense += line.credit;
+
         html += `
           <tr>
             <td class="fs-6">${number}</td>
@@ -116,6 +121,21 @@ class PDFController {
                   <td colspan="2">${fCurrency(income-expense)}</td>
                 </tr>
               </tfoot>
+            </table>
+
+            <table class="mt-4 table table-striped table-bordered table-sm">
+              <tr>
+                <th colspan="4">Total Income</th>
+                <td colspan="2">${fCurrency(total_income)}</td>
+              </tr>
+              <tr>
+                <th colspan="4">Total Expense</th>
+                <td colspan="2">${fCurrency(total_expense)}</td>
+              </tr>
+              <tr>
+                <th colspan="4">Margin</th>
+                <td colspan="2">${fCurrency(total_income-total_expense)}</td>
+              </tr>
             </table>
           </body>
         </html>
