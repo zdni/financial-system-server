@@ -31,7 +31,7 @@ router.get('/transactions', auth(), TransactionController.index);
 router.post('/transactions', auth(), TransactionController.store);
 router.get('/transactions/:id', auth(), TransactionController.show);
 router.put('/transactions/:id', auth(), TransactionController.update);
-// router.delete('/transactions/:id', auth(), TransactionController.destroy);
+router.delete('/transactions/:id', auth(), TransactionController.destroy);
 // transaction lines
 router.get('/transaction/lines', auth(), TransactionLineController.index);
 router.post('/transaction/lines', auth(), TransactionLineController.store);
