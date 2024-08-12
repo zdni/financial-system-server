@@ -121,7 +121,10 @@ class PDFController {
         </html>
       `;
 
-      const browser = await puppeteer.launch({ executablePath: executablePath(), });
+      const browser = await puppeteer.launch({ 
+        executablePath: executablePath(),
+        ignoreDefaultArgs: ['--disable-extensions'], 
+      });
       const page = await browser.newPage();
 
       await page.setContent(html);
