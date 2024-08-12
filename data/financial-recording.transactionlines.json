@@ -1,0 +1,900 @@
+[{
+  "_id": {
+    "$oid": "66b9f7530b70425a091adfe7"
+  },
+  "date": {
+    "$date": "2024-07-01T00:00:00.000Z"
+  },
+  "label": "Penjualan Kasir",
+  "transactionId": {
+    "$oid": "66b9f7530b70425a091adfe1"
+  },
+  "accountId": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 2200000,
+  "credit": 0,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:23.507Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:23.507Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f7530b70425a091adfed"
+  },
+  "date": {
+    "$date": "2024-07-01T00:00:00.000Z"
+  },
+  "label": "Penjualan",
+  "transactionId": {
+    "$oid": "66b9f7530b70425a091adfe1"
+  },
+  "vendorId": {
+    "$oid": "66a0311720845536f648b8f5"
+  },
+  "accountId": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 1500000,
+  "credit": 0,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:23.507Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:23.507Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f77f0b70425a091ae017"
+  },
+  "date": {
+    "$date": "2024-07-02T00:00:00.000Z"
+  },
+  "label": "Penjualan Kasir",
+  "transactionId": {
+    "$oid": "66b9f77f0b70425a091ae011"
+  },
+  "accountId": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 2000000,
+  "credit": 0,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:23.551Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:23.551Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f7c40b70425a091ae046"
+  },
+  "date": {
+    "$date": "2024-07-31T00:00:00.000Z"
+  },
+  "label": "Biaya Admin Bank",
+  "transactionId": {
+    "$oid": "66b9f7c40b70425a091ae040"
+  },
+  "accountId": {
+    "$oid": "66b9f6fa0b70425a091adfc5"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 0,
+  "credit": 25000,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:23.620Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:23.620Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f7c40b70425a091ae04b"
+  },
+  "date": {
+    "$date": "2024-07-31T00:00:00.000Z"
+  },
+  "label": "Pembelian Listrik",
+  "transactionId": {
+    "$oid": "66b9f7c40b70425a091ae040"
+  },
+  "accountId": {
+    "$oid": "66b9f6fa0b70425a091adfc5"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 0,
+  "credit": 203000,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:23.620Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:23.620Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f7c40b70425a091ae050"
+  },
+  "date": {
+    "$date": "2024-07-31T00:00:00.000Z"
+  },
+  "label": "Pembayaran Air",
+  "transactionId": {
+    "$oid": "66b9f7c40b70425a091ae040"
+  },
+  "accountId": {
+    "$oid": "66b9f6fa0b70425a091adfc5"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 0,
+  "credit": 150000,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:23.620Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:23.620Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f8020b70425a091ae0c9"
+  },
+  "date": {
+    "$date": "2024-07-05T00:00:00.000Z"
+  },
+  "label": "Penjualan Kasir",
+  "transactionId": {
+    "$oid": "66b9f8020b70425a091ae0c3"
+  },
+  "accountId": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 5000000,
+  "credit": 0,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:23.682Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:23.682Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f8020b70425a091ae0cf"
+  },
+  "date": {
+    "$date": "2024-07-05T00:00:00.000Z"
+  },
+  "label": "Penjualan",
+  "transactionId": {
+    "$oid": "66b9f8020b70425a091ae0c3"
+  },
+  "vendorId": {
+    "$oid": "66a0311920845536f648b8f7"
+  },
+  "accountId": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 1000000,
+  "credit": 0,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:23.682Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:23.682Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f83e0b70425a091ae124"
+  },
+  "date": {
+    "$date": "2024-07-08T00:00:00.000Z"
+  },
+  "label": "Pembelian Barang",
+  "transactionId": {
+    "$oid": "66b9f83e0b70425a091ae11d"
+  },
+  "vendorId": {
+    "$oid": "66a0312020845536f648b8ff"
+  },
+  "accountId": {
+    "$oid": "66a02eb520845536f648b8ee"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 0,
+  "credit": 3000000,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:23.742Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:23.742Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f83e0b70425a091ae129"
+  },
+  "date": {
+    "$date": "2024-07-08T00:00:00.000Z"
+  },
+  "label": "Penjualan Kasir",
+  "transactionId": {
+    "$oid": "66b9f83e0b70425a091ae11d"
+  },
+  "accountId": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 1600000,
+  "credit": 0,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:23.742Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:23.742Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f8a70b70425a091ae158"
+  },
+  "date": {
+    "$date": "2024-07-09T00:00:00.000Z"
+  },
+  "label": "Bayar Vendor",
+  "transactionId": {
+    "$oid": "66b9f8a70b70425a091ae151"
+  },
+  "vendorId": {
+    "$oid": "66a0312020845536f648b8ff"
+  },
+  "accountId": {
+    "$oid": "66a02eb520845536f648b8ee"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 0,
+  "credit": 1500000,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:23.847Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:23.847Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f8cc0b70425a091ae17d"
+  },
+  "date": {
+    "$date": "2024-07-12T00:00:00.000Z"
+  },
+  "label": "Penjualan Kasir",
+  "transactionId": {
+    "$oid": "66b9f8cc0b70425a091ae177"
+  },
+  "accountId": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 4250000,
+  "credit": 0,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:23.884Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:23.884Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f8f60b70425a091ae1c2"
+  },
+  "date": {
+    "$date": "2024-07-12T00:00:00.000Z"
+  },
+  "label": "Penjualan Kasir",
+  "transactionId": {
+    "$oid": "66b9f8f60b70425a091ae1bb"
+  },
+  "vendorId": {
+    "$oid": "66a0311720845536f648b8f5"
+  },
+  "accountId": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 1500000,
+  "credit": 0,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:23.926Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:23.926Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f8f60b70425a091ae1c8"
+  },
+  "date": {
+    "$date": "2024-07-12T00:00:00.000Z"
+  },
+  "label": "Bayar Vendor",
+  "transactionId": {
+    "$oid": "66b9f8f60b70425a091ae1bb"
+  },
+  "vendorId": {
+    "$oid": "66a0311f20845536f648b8fd"
+  },
+  "accountId": {
+    "$oid": "66a02eb520845536f648b8ee"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 0,
+  "credit": 1000000,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:23.926Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:23.926Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f95f0b70425a091ae27b"
+  },
+  "date": {
+    "$date": "2024-07-20T00:00:00.000Z"
+  },
+  "label": "Gaji Karyawan",
+  "transactionId": {
+    "$oid": "66b9f95f0b70425a091ae275"
+  },
+  "accountId": {
+    "$oid": "66b9f6f20b70425a091adfc2"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 0,
+  "credit": 3000000,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:24.031Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:24.031Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f9760b70425a091ae2a2"
+  },
+  "date": {
+    "$date": "2024-07-22T00:00:00.000Z"
+  },
+  "label": "Penjualan Kasir",
+  "transactionId": {
+    "$oid": "66b9f9760b70425a091ae29c"
+  },
+  "accountId": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 2400000,
+  "credit": 0,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:24.054Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:24.054Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f9a00b70425a091ae2d3"
+  },
+  "date": {
+    "$date": "2024-08-12T00:00:00.000Z"
+  },
+  "label": "Penjualan Kasir",
+  "transactionId": {
+    "$oid": "66b9f9a00b70425a091ae2cd"
+  },
+  "accountId": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 1000000,
+  "credit": 0,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:24.096Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:24.096Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f9a00b70425a091ae2d8"
+  },
+  "date": {
+    "$date": "2024-08-12T00:00:00.000Z"
+  },
+  "label": "Pembelian Barang",
+  "transactionId": {
+    "$oid": "66b9f9a00b70425a091ae2cd"
+  },
+  "accountId": {
+    "$oid": "66b9f6fa0b70425a091adfc5"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 0,
+  "credit": 500000,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:24.096Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:24.096Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f9a00b70425a091ae2de"
+  },
+  "date": {
+    "$date": "2024-08-12T00:00:00.000Z"
+  },
+  "label": "Penjualan",
+  "transactionId": {
+    "$oid": "66b9f9a00b70425a091ae2cd"
+  },
+  "vendorId": {
+    "$oid": "66a0311920845536f648b8f7"
+  },
+  "accountId": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 2500000,
+  "credit": 0,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:24.096Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:24.096Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f9c20b70425a091ae305"
+  },
+  "date": {
+    "$date": "2024-07-23T00:00:00.000Z"
+  },
+  "label": "Pembelian Barang",
+  "transactionId": {
+    "$oid": "66b9f9c20b70425a091ae2fe"
+  },
+  "vendorId": {
+    "$oid": "66a0312020845536f648b8ff"
+  },
+  "accountId": {
+    "$oid": "66a02eb520845536f648b8ee"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 0,
+  "credit": 4000000,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:24.130Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:24.130Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9fc660b70425a091ae396"
+  },
+  "date": {
+    "$date": "2024-08-01T00:00:00.000Z"
+  },
+  "label": "Pembelian Barang",
+  "transactionId": {
+    "$oid": "66b9fc660b70425a091ae38f"
+  },
+  "vendorId": {
+    "$oid": "66a0312220845536f648b901"
+  },
+  "accountId": {
+    "$oid": "66a02eb520845536f648b8ee"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 0,
+  "credit": 5000000,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:24.806Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:24.806Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9fc660b70425a091ae39b"
+  },
+  "date": {
+    "$date": "2024-08-01T00:00:00.000Z"
+  },
+  "label": "Penjualan Kasir",
+  "transactionId": {
+    "$oid": "66b9fc660b70425a091ae38f"
+  },
+  "accountId": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 1400000,
+  "credit": 0,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:24.806Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:24.806Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9fc7b0b70425a091ae3c2"
+  },
+  "date": {
+    "$date": "2024-08-02T00:00:00.000Z"
+  },
+  "label": "Penjualan Kasir",
+  "transactionId": {
+    "$oid": "66b9fc7b0b70425a091ae3bc"
+  },
+  "accountId": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 1300000,
+  "credit": 0,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:24.827Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:24.827Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9fc9d0b70425a091ae3fa"
+  },
+  "date": {
+    "$date": "2024-08-12T00:00:00.000Z"
+  },
+  "label": "Penjualan Kasir",
+  "transactionId": {
+    "$oid": "66b9fc9d0b70425a091ae3f4"
+  },
+  "accountId": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 2000000,
+  "credit": 0,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:24.861Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:24.861Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9fc9d0b70425a091ae400"
+  },
+  "date": {
+    "$date": "2024-08-05T00:00:00.000Z"
+  },
+  "label": "Penjualan",
+  "transactionId": {
+    "$oid": "66b9fc9d0b70425a091ae3f4"
+  },
+  "vendorId": {
+    "$oid": "66a0311720845536f648b8f5"
+  },
+  "accountId": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 500000,
+  "credit": 0,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:24.861Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:24.861Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9fcbe0b70425a091ae42c"
+  },
+  "date": {
+    "$date": "2024-08-06T00:00:00.000Z"
+  },
+  "label": "Penjualan",
+  "transactionId": {
+    "$oid": "66b9fcbe0b70425a091ae426"
+  },
+  "accountId": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 2500000,
+  "credit": 0,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:24.894Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:24.894Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9fcbe0b70425a091ae431"
+  },
+  "date": {
+    "$date": "2024-08-06T00:00:00.000Z"
+  },
+  "label": "Pembelian ATK",
+  "transactionId": {
+    "$oid": "66b9fcbe0b70425a091ae426"
+  },
+  "accountId": {
+    "$oid": "66b9f6fa0b70425a091adfc5"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 0,
+  "credit": 450000,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:24.894Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:24.894Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9fcd30b70425a091ae45c"
+  },
+  "date": {
+    "$date": "2024-08-07T00:00:00.000Z"
+  },
+  "label": "Penjualan Kasir",
+  "transactionId": {
+    "$oid": "66b9fcd30b70425a091ae456"
+  },
+  "accountId": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 1500000,
+  "credit": 0,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:24.915Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:24.915Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9fcec0b70425a091ae489"
+  },
+  "date": {
+    "$date": "2024-08-09T00:00:00.000Z"
+  },
+  "label": "Penjualan",
+  "transactionId": {
+    "$oid": "66b9fcec0b70425a091ae482"
+  },
+  "vendorId": {
+    "$oid": "66a0311720845536f648b8f5"
+  },
+  "accountId": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 2500000,
+  "credit": 0,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:24.940Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:24.940Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9fcec0b70425a091ae48e"
+  },
+  "date": {
+    "$date": "2024-08-09T00:00:00.000Z"
+  },
+  "label": "Penjualan",
+  "transactionId": {
+    "$oid": "66b9fcec0b70425a091ae482"
+  },
+  "accountId": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 1000000,
+  "credit": 0,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:24.940Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:24.940Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9fd080b70425a091ae4ba"
+  },
+  "date": {
+    "$date": "2024-08-12T00:00:00.000Z"
+  },
+  "label": "Bayar Vendor",
+  "transactionId": {
+    "$oid": "66b9fd080b70425a091ae4b3"
+  },
+  "vendorId": {
+    "$oid": "66a0312220845536f648b901"
+  },
+  "accountId": {
+    "$oid": "66a02eb520845536f648b8ee"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 0,
+  "credit": 1500000,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:24.968Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:24.968Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9fd080b70425a091ae4bf"
+  },
+  "date": {
+    "$date": "2024-08-12T00:00:00.000Z"
+  },
+  "label": "Penjualan Kasir",
+  "transactionId": {
+    "$oid": "66b9fd080b70425a091ae4b3"
+  },
+  "accountId": {
+    "$oid": "66aba32c67419c1dce001596"
+  },
+  "userId": {
+    "$oid": "669ee7c585d4486a3ef13468"
+  },
+  "debit": 2000000,
+  "credit": 0,
+  "createdAt": {
+    "$date": "1970-01-20T22:44:24.968Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:24.968Z"
+  },
+  "__v": 0
+}]

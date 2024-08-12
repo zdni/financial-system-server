@@ -25,4 +25,32 @@
     "$date": "1970-01-20T22:28:44.460Z"
   },
   "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f6f20b70425a091adfc2"
+  },
+  "name": "Hutang Gaji",
+  "account_type": "expense",
+  "createdAt": {
+    "$date": "1970-01-20T22:44:23.410Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:23.410Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b9f6fa0b70425a091adfc5"
+  },
+  "name": "Pengeluaran Kantor",
+  "account_type": "expense",
+  "createdAt": {
+    "$date": "1970-01-20T22:44:23.418Z"
+  },
+  "updatedAt": {
+    "$date": "1970-01-20T22:44:23.418Z"
+  },
+  "__v": 0
 }]
